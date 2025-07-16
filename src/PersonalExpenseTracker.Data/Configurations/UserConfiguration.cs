@@ -35,8 +35,8 @@ namespace PersonalExpenseTracker.Data.Configurations
             builder.Property(u => u.IsDeleted)
                 .HasDefaultValue(false);
             
-            // Indexes
-            builder.HasIndex(u => u.Email).IsUnique();
+            // Essential indexes only
+            builder.HasIndex(u => u.Email);
             
             // Soft delete filter
             builder.HasQueryFilter(u => !u.IsDeleted);

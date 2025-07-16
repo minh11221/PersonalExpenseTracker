@@ -30,12 +30,10 @@ namespace PersonalExpenseTracker.Data.Configurations
             // Relationships
             builder.HasOne(c => c.User)
                 .WithMany(u => u.Categories)
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(c => c.UserId);
             
-            // Indexes
+            // Essential indexes only
             builder.HasIndex(c => c.UserId);
-            builder.HasIndex(c => new { c.UserId, c.Name }).IsUnique();
             
             // Soft delete filter
             builder.HasQueryFilter(c => !c.IsDeleted);
