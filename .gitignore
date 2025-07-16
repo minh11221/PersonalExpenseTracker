@@ -8,4 +8,4 @@ coverage/
 *.tmp
 *.env.local
 *.env.development      
-task/
+tasks/
